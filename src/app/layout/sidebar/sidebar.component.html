@@ -2,7 +2,7 @@
     <img class="logo" src="https://eezeeorder.com/images/logo.png">     
   <ul>
       <li>
-          <a href="#">
+          <a [routerLink]="['/dashboard']" [routerLinkActive]="active">
               <i class="fa fa-home fa-2x"></i>
               <span class="nav-text">
                   Dashboard
@@ -16,7 +16,7 @@
       <li>
          <a href="#">
                <i class="fa fa-power-off fa-2x"></i>
-              <span class="nav-text">
+              <span class="nav-text" (click)="logoutHandler()">
                   Logout
               </span>
           </a>
