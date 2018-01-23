@@ -5,6 +5,7 @@ import { DasboardComponent } from './dasboard/dasboard.component';
 import { LoginComponent } from './login/login.component';
 
 import { CanActivateRouteGuard } from './canactivate.route.guard';
+import { TemplateComponent } from './layout/template/template.component';
 
 export const routes:  Routes = [
     {
@@ -17,9 +18,15 @@ export const routes:  Routes = [
         component: LoginComponent
     },
     {
-        path: 'dashboard',
-        component: DasboardComponent,
-        canActivate: [CanActivateRouteGuard]
+        path: '',
+        component: TemplateComponent,
+        canActivate: [CanActivateRouteGuard],
+        children: [
+            {
+                path: 'dashboard',
+                component: DasboardComponent,
+            }
+        ]
     },
     {
         path: '**',

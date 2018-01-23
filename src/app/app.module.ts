@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Routes,  RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module';
 
@@ -35,6 +35,7 @@ import { CanActivateRouteGuard } from './canactivate.route.guard';
     MaterialModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    FormsModule,
     routing
   ],
   providers: [CanActivateRouteGuard],

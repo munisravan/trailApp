@@ -1,4 +1,4 @@
-import { Router } from '@angular/router';
+import { Router, RouterLinkActive } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

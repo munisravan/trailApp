@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,9 +13,13 @@ export class LoginComponent implements OnInit {
 
   errorMessage: string;
 
-  constructor(private fb: FormBuilder, private router: Router) { }
+  constructor(private fb: FormBuilder, private router: Router, private route: ActivatedRoute) { }
+
+  return = '';
 
   ngOnInit() {
+    this.route.queryParams
+    .subscribe(params => this.return = params['return'] || '/dashboard');
     this.buildLoginForm();
   }
 
@@ -33,7 +37,8 @@ export class LoginComponent implements OnInit {
     this.errorMessage = '';
     if ((user.email === 'admin@eezeeorder.com') && (user.password === 'root')) {
       localStorage.setItem('isloggedIn', 'true');
-      this.router.navigateByUrl('/dashboard');
+      localStorage.setItem('user', user.email);
+      this.router.navigateByUrl(this.return);
     } else {
       this.errorMessage = 'UnAuthorized User';
     }
