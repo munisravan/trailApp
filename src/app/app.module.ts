@@ -19,6 +19,7 @@ import { ShowPersonDataComponent } from './show-person-data/show-person-data.com
 import { DasboardComponent } from './dasboard/dasboard.component';
 
 import { CanActivateRouteGuard } from './canactivate.route.guard';
+import { DataService } from './data.service';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import { CanActivateRouteGuard } from './canactivate.route.guard';
     FormsModule,
     routing
   ],
-  providers: [CanActivateRouteGuard],
+  providers: [CanActivateRouteGuard, DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

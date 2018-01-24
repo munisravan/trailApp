@@ -1,25 +1,27 @@
-<form class="example-form">
+<form class="example-form" [formGroup]="dashboardForm" (ngSubmit)="onSubmit()">
 
   <mat-form-field class="example-full-width">
-    <input matInput placeholder="First Name">
+    <input matInput placeholder="First Name" formControlName="firstName">
   </mat-form-field>
 
   <mat-form-field class="example-full-width">
-    <textarea matInput placeholder="Last Name"></textarea>
+    <textarea matInput placeholder="Last Name" formControlName="lastName"></textarea>
   </mat-form-field>
 
   <mat-form-field class="example-full-width">
-    <input matInput placeholder="Email">
+    <input matInput placeholder="Email" formControlName="email">
+    <mat-error>Invalid Email</mat-error>
   </mat-form-field>
 
   <mat-form-field class="example-full-width">
     <span matPrefix>+61 &nbsp;</span>
-    <input type="tel" matInput placeholder="Telephone">
+    <input type="tel" matInput placeholder="Telephone" formControlName="phoneNo"> 
+    <mat-error>Invalid PhoneNo -it should be 10 digits long</mat-error>
 
   </mat-form-field>
 
-  <div class="button-row">
-    <button mat-raised-button color="primary">Add</button>
+  <div class="button-row" >
+    <button mat-raised-button color="primary" [disabled]="!dashboardForm.valid">Add</button>
   </div>
 
 </form>
